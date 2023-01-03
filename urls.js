@@ -68,7 +68,7 @@ function name(url) {
 
 const path = process.argv[2];
 
-if (path === "FILENAME") {
+if (path === "urls.txt") {
   start();
 } else {
   console.error(`Error!!! ${path} not valid!`, error);
