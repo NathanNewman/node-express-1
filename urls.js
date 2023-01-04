@@ -11,18 +11,13 @@ async function start() {
 }
 
 async function getText() {
-  const newData = await fs.promises.readFile(
-    "urls.txt",
-    "utf8",
-    (error, data) => {
-      if (error) {
-        console.log("Error reading urls.txt:", error);
-        process.kill(1);
-      }
-      return data;
-    }
-  );
-  return newData;
+  try {
+    const newData = await fs.promises.readFile("urls.txt", "utf8");
+    return newData;
+  } catch (error) {
+    return console.log("Error reading urls.txt:", error);
+  }
+
 }
 
 function convertData(data) {
